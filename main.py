@@ -14,7 +14,6 @@ def myntra_login():
     # options.add_argument('--headless')
     options.add_argument('--ignore-ssl-errors=yes')
     options.add_argument('--ignore-certificate-errors')
-    # options.add_argument('--user-data-dir=C:/Users/GOD/AppData/Local/Google/Chrome/User Data')
     options.add_argument('--user-data-dir=/home/harshitsingh/.config/google-chrome/default')
 
     # driver = webdriver.Chrome(service=Service(executable_path = "/home/harshitsingh/selenium-project/chromedriver_v95"), options=options)
@@ -37,6 +36,7 @@ def myntra_login():
     # driver.find_element_by_link_text('Saved Addresses').click()
 
     # time.sleep(2)
+    ##### below for old version
     # name = driver.find_elements(by=By.CLASS_NAME, value='addressAccordian-name')
     addresses = driver.find_elements(by=By.CLASS_NAME, value='addressAccordian-address')
 
@@ -45,10 +45,10 @@ def myntra_login():
         adds.append(add.text)
         # print(add.text)
 
-
-    # time.sleep(3000)
     driver.close()
     return adds
+
+
 
 def save_add():
     adds = myntra_login()
@@ -61,7 +61,6 @@ def save_add():
             rem += str(temp[i] +' ')
         d = {'name':temp[0], 'type':temp[1], 'address':temp[2]+' '+temp[3]}
         adds_dict_list.append(d)
-    # adds = ['dssfds', 'dfsdvs', 'fdsfsdf']
     dt = str(datetime.datetime.now())[:-7]
     filename = ('address_' + str(dt))
     df = pd.DataFrame(adds_dict_list)
