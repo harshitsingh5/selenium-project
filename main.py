@@ -17,7 +17,7 @@ def myntra_login():
     # options.add_argument('--user-data-dir=C:/Users/GOD/AppData/Local/Google/Chrome/User Data')
     options.add_argument('--user-data-dir=/home/harshitsingh/.config/google-chrome/default')
 
-    # driver = webdriver.Chrome(service=Service(executable_path = "/home/harshitsingh/selenium-project/chromedriver_v95.exe"), options=options)
+    # driver = webdriver.Chrome(service=Service(executable_path = "/home/harshitsingh/selenium-project/chromedriver_v95"), options=options)
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
 
     # driver.get("https://www.myntra.com/")
