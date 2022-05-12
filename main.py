@@ -56,15 +56,13 @@ def save_add():
     adds_dict_list = []
     for add in adds:
         temp = add.split('\n')
-        rem = ''
-        for i in range(2,len(temp)):
-            rem += str(temp[i] +' ')
-        d = {'name':temp[0], 'type':temp[1], 'address':temp[2]+' '+temp[3]}
+        rem = ' '.join(temp[2:])
+        d = {'name':temp[0], 'type':temp[1], 'address':rem}
         adds_dict_list.append(d)
     dt = str(datetime.datetime.now())[:-7]
     filename = ('address_' + str(dt))
     df = pd.DataFrame(adds_dict_list)
-    # print(df)
+    print(df)
     df.to_csv(filename, index = False)
     return
 
